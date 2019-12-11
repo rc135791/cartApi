@@ -1,7 +1,6 @@
 {
   "name": "apidemo",
   "version": "0.0.0",
-  "private": true,
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
@@ -17,5 +16,11 @@
     "morgan": "~1.8.1",
     "mysql": "^2.14.1",
     "serve-favicon": "~2.4.2"
-  }
+  },
+   "repository": {
+    "type": "git",
+    "url": "https://github.com/rc135791/cartApi.git"
+  },
+  "author": "Container Riders",
+  "license": "CPI1.0"
 }
