@@ -2,8 +2,9 @@
   "name": "apidemo",
   "version": "0.0.0",
   "private": true,
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon node app.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
