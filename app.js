@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Database connection
 app.use(function(req, res, next){
 	// Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3500');
+    res.setHeader('Access-Control-Allow-Origin', process.env.ALLOW_CORS_REQUEST_URL);
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -40,8 +40,7 @@ app.use(function(req, res, next){
     // Set to true if you need the website to include cookies in the requests sent
     // to the API (e.g. in case you use sessions)
     res.setHeader('Access-Control-Allow-Credentials', true);
-    console.log(process.env.OPENSHIFT_MYSQL_DB_HOST+"********");
-	global.connection = mysql.createConnection({
+    global.connection = mysql.createConnection({
 		 host     : process.env.OPENSHIFT_MYSQL_DB_HOST,
 		 port     : process.env.OPENSHIFT_MYSQL_DB_PORT,
 		 user     : process.env.OPENSHIFT_MYSQL_USER,
@@ -49,7 +48,6 @@ app.use(function(req, res, next){
 		 database : process.env.OPENSHIFT_MYSQL_DATABASE
 		})
 	connection.connect(function(err) {
-		console.log(process.env.OPENSHIFT_MYSQL_DB_HOST+"***2*****");
 		 if (err) throw err;
 	});
 	next();
