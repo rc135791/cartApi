@@ -39,7 +39,7 @@ router.get('/getProDetails', function(req, res, next) {
 			         'on psku.ITEM_NUMBER = pp.ITEM_NUMBER '+
 			         'left join XXIBM_PRODUCT_STYLE pstyle '+
 			         'on psku.STYLE_ITEM = pstyle.ITEM_NUMBER '+
-			         'where (psku.DESCRIPTION like "%'+srchStr+'%" or psku.LONG_DESCRIPTION like "%'+srchStr+'%") '
+			         'where (psku.DESCRIPTION like "%'+srchStr+'%" or psku.DESCRIPTION like "%'+srchStr+'%" or psku.SKU_ATTRIBUTE_VALUE1 like "%'+srchStr+'%" or psku.SKU_ATTRIBUTE_VALUE2 like "%'+srchStr+'%") '
 			         , function (error, results, fields) {
 	  	if(error){
 	  		res.send(JSON.stringify({"status": 500, "error": error, "results": null})); 
